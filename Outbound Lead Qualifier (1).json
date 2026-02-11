@@ -1,0 +1,1131 @@
+{
+  "name": "Outbound Lead Qualifier",
+  "nodes": [
+    {
+      "parameters": {
+        "formTitle": "Work with us!",
+        "formDescription": "Fill out the form and we will reach out ASAP.",
+        "formFields": {
+          "values": [
+            {
+              "fieldName": "Name",
+              "fieldLabel": "Name",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Phone Number",
+              "fieldLabel": "Phone Number",
+              "fieldType": "number",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Email",
+              "fieldLabel": "Email",
+              "fieldType": "email",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Company Name",
+              "fieldLabel": "Company Name",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Role",
+              "fieldLabel": "Role",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Request",
+              "fieldLabel": "Request",
+              "requiredField": true
+            },
+            {
+              "fieldName": "Company Size",
+              "fieldLabel": "Company Size",
+              "fieldType": "dropdown",
+              "fieldOptions": {
+                "values": [
+                  {
+                    "option": "1"
+                  },
+                  {
+                    "option": "2-10"
+                  },
+                  {
+                    "option": "11-50"
+                  },
+                  {
+                    "option": "51-100"
+                  },
+                  {
+                    "option": "101+"
+                  }
+                ]
+              },
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.4,
+      "position": [
+        752,
+        304
+      ],
+      "id": "a6311000-f1f6-4648-833c-f080c6f69b02",
+      "name": "On form submission",
+      "webhookId": "22f3d56a-d226-4ad4-b4b3-d12a5ea0ea19"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk",
+          "mode": "list",
+          "cachedResultName": "Form Submission Outbound Caller",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $now.format('yyyy-MM-dd hh:mm a') }}",
+            "Name": "={{ $json.Name }}",
+            "Phone": "={{ $json['Phone Number'] }}",
+            "Email": "={{ $json.Email }}",
+            "Company": "={{ $json['Company Name'] }}",
+            "Role": "={{ $json.Role }}",
+            "Request": "={{ $json.Request }}",
+            "Company Size": "={{ $json['Company Size'] }}",
+            "Status": "Incorrect Phone #"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Role",
+              "displayName": "Role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Size",
+              "displayName": "Company Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service Interest",
+              "displayName": "Service Interest",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Motivation",
+              "displayName": "Motivation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Urgency",
+              "displayName": "Urgency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Past Experience",
+              "displayName": "Past Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Intent?",
+              "displayName": "Intent?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1248,
+        48
+      ],
+      "id": "f1b94ea8-466b-4b60-9e3a-fda3dba4981d",
+      "name": "Log Incorrect Phone",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3xSMAQyDQ5ZI24zE",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "e68a68dc-720b-423e-84f5-1b7aa9238daa",
+              "leftValue": "={{ $json[\"Phone Number\"] }}",
+              "rightValue": "incorrect format",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1184,
+        304
+      ],
+      "id": "576bc8a3-1e4b-4192-89e0-9b2520394ca3",
+      "name": "Incorrect Phone?"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Get all input items\nconst items = $input.all();\n\n// Process each item\nreturn items.map(item => {\n  const phoneNumber = item.json['Phone Number'];\n  \n  // Convert to string and remove all non-digit characters\n  let cleanNumber = String(phoneNumber).replace(/\\D/g, '');\n  \n  // Handle different cases\n  let standardizedNumber;\n  \n  if (cleanNumber.length === 10) {\n    // Perfect - just 10 digits\n    standardizedNumber = cleanNumber;\n  } else if (cleanNumber.length === 11 && cleanNumber.startsWith('1')) {\n    // US number with country code +1\n    standardizedNumber = cleanNumber.slice(1);\n  } else {\n    // Wrong format - too many, too few, or wrong country code\n    standardizedNumber = 'incorrect format';\n  }\n  \n  // Return the item with standardized phone number\n  return {\n    json: {\n      ...item.json,\n      'Phone Number': standardizedNumber\n    }\n  };\n});"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        992,
+        304
+      ],
+      "id": "49ba9e4a-c15b-4946-a20d-791dfa9258ec",
+      "name": "Standardize Data"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.vapi.ai/call",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"assistantId\": \"fe3865fc-8dec-43e6-a49b-19f536ad992a\",\n  \"phoneNumberId\": \"ddebaae4-d1bd-405c-adbd-3ad1e35bf847\",\n  \"customers\": [\n    {\n      \"number\": \"+1{{ $json['Phone Number'] }}\"\n    }\n  ],\n  \"assistantOverrides\": {\n    \"variableValues\": {\n      \"lead_name\": \"{{ $json.Name }}\",\n      \"lead_company_name\": \"{{ $json['Company Name'] }}\",\n      \"lead_request\": \"{{ $json.Request }}\"\n    }\n  }\n}\n",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1360,
+        400
+      ],
+      "id": "a381b7bf-4472-4533-8bc1-751b1507d2c1",
+      "name": "Call Lead",
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "7B6UQk6hN5QOlUyB",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.vapi.ai/call/{{ $json.results[0].id }}",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBearerAuth",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        1632,
+        304
+      ],
+      "id": "e8cc4c80-79cb-400f-8840-473a1847fe6f",
+      "name": "Get Call Details",
+      "executeOnce": true,
+      "credentials": {
+        "httpBearerAuth": {
+          "id": "7B6UQk6hN5QOlUyB",
+          "name": "Bearer Auth account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "73716a76-22fa-4f8c-880f-b76350b436f9",
+              "leftValue": "={{ $json.endedReason }}",
+              "rightValue": "voicemail",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        2112,
+        112
+      ],
+      "id": "0e827145-d26d-432e-b38c-23a0dfa03618",
+      "name": "Voicemail?"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "30c7ebf4-6de9-49f3-9a27-b7f3a7e2b558",
+              "leftValue": "={{ $json.status }}",
+              "rightValue": "ended",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        1936,
+        304
+      ],
+      "id": "18e97818-db78-47df-a4f5-73e8061893ad",
+      "name": "Ended?"
+    },
+    {
+      "parameters": {
+        "amount": 10
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        2112,
+        304
+      ],
+      "id": "0cb25082-9c13-4297-b4c7-7296c908c142",
+      "name": "Polling",
+      "webhookId": "2c866267-82c9-4178-8f2f-fc4040a7fb22"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk",
+          "mode": "list",
+          "cachedResultName": "Form Submission Outbound Caller",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1NEEmrQhRC0cGLyYKa0qTr5e72Iub38_tZFs4l37PwTk/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Date": "={{ $now.format('yyyy-MM-dd hh:mm a') }}",
+            "Name": "={{ $('On form submission').item.json.Name }}",
+            "Phone": "={{ $('On form submission').item.json['Phone Number'] }}",
+            "Email": "={{ $('On form submission').item.json.Email }}",
+            "Company": "={{ $('On form submission').item.json['Company Name'] }}",
+            "Role": "={{ $('On form submission').item.json.Role }}",
+            "Request": "={{ $('On form submission').item.json.Request }}",
+            "Company Size": "={{ $('On form submission').item.json['Company Size'] }}",
+            "Service Interest": "N/A",
+            "Motivation": "N/A",
+            "Urgency": "N/A",
+            "Past Experience": "N/A",
+            "Budget": "N/A",
+            "Intent?": "N/A",
+            "Status": "Call Back"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Date",
+              "displayName": "Date",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Phone",
+              "displayName": "Phone",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company",
+              "displayName": "Company",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Role",
+              "displayName": "Role",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Request",
+              "displayName": "Request",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Company Size",
+              "displayName": "Company Size",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Service Interest",
+              "displayName": "Service Interest",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Motivation",
+              "displayName": "Motivation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Urgency",
+              "displayName": "Urgency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Past Experience",
+              "displayName": "Past Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Intent?",
+              "displayName": "Intent?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Status",
+              "displayName": "Status",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2368,
+        96
+      ],
+      "id": "a7ac69c4-0169-406f-a617-93a423833b57",
+      "name": "Log Voicemal",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3xSMAQyDQ5ZI24zE",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1792,
+        304
+      ],
+      "id": "af134073-2a20-4286-87d8-24db741fad2e",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1cXTV3-hM1xX2zPZ_RBF21hJXdoXocd5Di_dKXFuUeok",
+          "mode": "list",
+          "cachedResultName": "vapi_agent",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cXTV3-hM1xX2zPZ_RBF21hJXdoXocd5Di_dKXFuUeok/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 480365511,
+          "mode": "list",
+          "cachedResultName": "Sheet9",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1cXTV3-hM1xX2zPZ_RBF21hJXdoXocd5Di_dKXFuUeok/edit#gid=480365511"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Service Interest": "={{ $json.artifact.structuredOutputs['29bd6053-1f3d-4b99-a675-298898311bd3'].result }}",
+            "Budget": "={{ $json.artifact.structuredOutputs['d26438f3-b4da-470d-8324-04c52a04a4b8'].result }}",
+            "Paid Intent": "={{ $json.artifact.structuredOutputs['04dbe589-42ef-4551-8840-3575b7234d4e'].result }}",
+            "Motivation": "={{ $json.artifact.structuredOutputs['85cba8e7-7bef-4efd-9a8c-ff38eade7226'].result }}",
+            "Urgency": "={{ $json.artifact.structuredOutputs['a5a48b77-1b6f-4230-abc2-75fcbeb2cdc6'].result }}",
+            "Past Experience": "={{ $json.artifact.structuredOutputs['4a99a866-428a-4135-bd18-92383c3dbc8a'].result }}",
+            "Name": "={{ $('On form submission').item.json.Name }}",
+            "Phone Number": "={{ $('On form submission').item.json['Phone Number'] }}",
+            "Email": "={{ $('On form submission').item.json.Email }}",
+            "Company Name": "={{ $('On form submission').item.json['Company Name'] }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Name",
+              "displayName": "Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Phone Number",
+              "displayName": "Phone Number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Email",
+              "displayName": "Email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Company Name",
+              "displayName": "Company Name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Service Interest",
+              "displayName": "Service Interest",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Urgency",
+              "displayName": "Urgency",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Budget",
+              "displayName": "Budget",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Paid Intent",
+              "displayName": "Paid Intent",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Motivation",
+              "displayName": "Motivation",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "Past Experience",
+              "displayName": "Past Experience",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        2400,
+        384
+      ],
+      "id": "07ccf102-b087-4e59-9114-abcee94508f2",
+      "name": "Log Complete",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "3xSMAQyDQ5ZI24zE",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "amount": 60
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        1488,
+        144
+      ],
+      "id": "fefd754a-1598-4f14-9632-e8da83c6b17c",
+      "name": "Wait",
+      "webhookId": "7f524fb2-74b6-4b8e-b9eb-8fbc78c891fa"
+    },
+    {
+      "parameters": {
+        "content": "## Workflow Setup Guide - Complete Requirements\n\n### What This Workflow Does\n- This workflow integrates with Vapi to handle AI voice conversations and processes the results through n8n.\n\n### Required Setup Steps:\n- Vapi API Key\nSign up at vapi.ai\nNavigate to your dashboard → API Keys\nGenerate a new API key\nCopy and save it securely\n- Configure Vapi Credentials in n8n\nGo to Credentials in your n8n instance\nClick Add Credential\nSearch for \"Vapi\"\nPaste your API key\nTest the connection\nSave the credential\n\n- Assistant Configuration\nIn Vapi, create or configure your AI assistant\nSet up your voice, language model, and conversation flow\nLink the assistant to your phone number or integration\n- Test the Workflow\nMake a test call through Vapi\nCheck n8n execution history to verify data is received\nReview the processed output in subsequent nodes\n### Important Notes\n- Keep your API key secure and never share it\n- Monitor your Vapi usage to stay within plan limits\n",
+        "height": 784,
+        "width": 512
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        528,
+        -192
+      ],
+      "typeVersion": 1,
+      "id": "ea6eef86-6f1c-416f-a15c-f5060006ad17",
+      "name": "Sticky Note"
+    }
+  ],
+  "pinData": {
+    "On form submission": [
+      {
+        "json": {
+          "Name": "James",
+          "Phone Number": "661 543 1366",
+          "Email": "samwelnyangena90@gmail.com",
+          "Company Name": "GlobalTech",
+          "Role": "Director",
+          "Request": "Ai automations",
+          "Company Size": "1",
+          "submittedAt": "2026-02-10T12:16:44.768+03:00",
+          "formMode": "test"
+        }
+      }
+    ],
+    "Get Call Details": [
+      {
+        "json": {
+          "id": "019c4bbf-8cf1-7ffe-930f-e759ab65d11e",
+          "assistantId": "fe3865fc-8dec-43e6-a49b-19f536ad992a",
+          "phoneNumberId": "ddebaae4-d1bd-405c-adbd-3ad1e35bf847",
+          "type": "outboundPhoneCall",
+          "startedAt": "2026-02-11T08:09:33.806Z",
+          "createdAt": "2026-02-11T08:09:30.609Z",
+          "updatedAt": "2026-02-11T08:09:33.821Z",
+          "orgId": "2a1dfe3b-c475-4e55-ae8a-d859f1523602",
+          "cost": 0,
+          "customer": {
+            "number": "+16615431366"
+          },
+          "status": "in-progress",
+          "phoneCallProvider": "vapi",
+          "phoneCallProviderId": "ae174a58-82a4-4cd5-83af-7e45efd6e448",
+          "phoneCallTransport": "pstn",
+          "phoneCallProviderDetails": {
+            "sbcCallId": "d668fcc5-81c3-123f-0295-02c16c8be2c9"
+          },
+          "assistantOverrides": {
+            "variableValues": {
+              "lead_name": "James",
+              "lead_request": "Ai automations",
+              "lead_company_name": "GlobalTech"
+            }
+          },
+          "monitor": {
+            "listenUrl": "wss://phone-call-websocket.aws-us-west-2-backend-production1.vapi.ai/019c4bbf-8cf1-7ffe-930f-e759ab65d11e/listen",
+            "controlUrl": "https://phone-call-websocket.aws-us-west-2-backend-production1.vapi.ai/019c4bbf-8cf1-7ffe-930f-e759ab65d11e/control"
+          },
+          "transport": {
+            "callSid": "ae174a58-82a4-4cd5-83af-7e45efd6e448",
+            "provider": "vapi.sip",
+            "sbcCallSid": "d668fcc5-81c3-123f-0295-02c16c8be2c9",
+            "conversationType": "voice"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Limit": [
+      {
+        "json": {
+          "id": "019c4bbf-8cf1-7ffe-930f-e759ab65d11e",
+          "assistantId": "fe3865fc-8dec-43e6-a49b-19f536ad992a",
+          "phoneNumberId": "ddebaae4-d1bd-405c-adbd-3ad1e35bf847",
+          "type": "outboundPhoneCall",
+          "startedAt": "2026-02-11T08:09:33.806Z",
+          "createdAt": "2026-02-11T08:09:30.609Z",
+          "updatedAt": "2026-02-11T08:09:33.821Z",
+          "orgId": "2a1dfe3b-c475-4e55-ae8a-d859f1523602",
+          "cost": 0,
+          "customer": {
+            "number": "+16615431366"
+          },
+          "status": "in-progress",
+          "phoneCallProvider": "vapi",
+          "phoneCallProviderId": "ae174a58-82a4-4cd5-83af-7e45efd6e448",
+          "phoneCallTransport": "pstn",
+          "phoneCallProviderDetails": {
+            "sbcCallId": "d668fcc5-81c3-123f-0295-02c16c8be2c9"
+          },
+          "assistantOverrides": {
+            "variableValues": {
+              "lead_name": "James",
+              "lead_request": "Ai automations",
+              "lead_company_name": "GlobalTech"
+            }
+          },
+          "monitor": {
+            "listenUrl": "wss://phone-call-websocket.aws-us-west-2-backend-production1.vapi.ai/019c4bbf-8cf1-7ffe-930f-e759ab65d11e/listen",
+            "controlUrl": "https://phone-call-websocket.aws-us-west-2-backend-production1.vapi.ai/019c4bbf-8cf1-7ffe-930f-e759ab65d11e/control"
+          },
+          "transport": {
+            "callSid": "ae174a58-82a4-4cd5-83af-7e45efd6e448",
+            "provider": "vapi.sip",
+            "sbcCallSid": "d668fcc5-81c3-123f-0295-02c16c8be2c9",
+            "conversationType": "voice"
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ],
+    "Call Lead": [
+      {
+        "json": {
+          "results": [
+            {
+              "id": "019c4bbf-8cf1-7ffe-930f-e759ab65d11e",
+              "assistantId": "fe3865fc-8dec-43e6-a49b-19f536ad992a",
+              "phoneNumberId": "ddebaae4-d1bd-405c-adbd-3ad1e35bf847",
+              "type": "outboundPhoneCall",
+              "createdAt": "2026-02-11T08:09:30.609Z",
+              "updatedAt": "2026-02-11T08:09:30.609Z",
+              "orgId": "2a1dfe3b-c475-4e55-ae8a-d859f1523602",
+              "cost": 0,
+              "customer": {
+                "number": "+16615431366"
+              },
+              "status": "queued",
+              "phoneCallProvider": "vapi",
+              "assistantOverrides": {
+                "variableValues": {
+                  "lead_name": "James",
+                  "lead_request": "Ai automations",
+                  "lead_company_name": "GlobalTech"
+                }
+              },
+              "monitor": {
+                "listenUrl": "wss://phone-call-websocket.aws-us-west-2-backend-production1.vapi.ai/019c4bbf-8cf1-7ffe-930f-e759ab65d11e/listen",
+                "controlUrl": "https://phone-call-websocket.aws-us-west-2-backend-production1.vapi.ai/019c4bbf-8cf1-7ffe-930f-e759ab65d11e/control"
+              },
+              "transport": {
+                "conversationType": "voice",
+                "provider": "vapi.sip"
+              }
+            }
+          ],
+          "errors": [],
+          "subscriptionLimits": {
+            "concurrencyBlocked": false,
+            "concurrencyLimit": 10,
+            "remainingConcurrentCalls": 9
+          }
+        },
+        "pairedItem": {
+          "item": 0
+        }
+      }
+    ]
+  },
+  "connections": {
+    "On form submission": {
+      "main": [
+        [
+          {
+            "node": "Standardize Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Incorrect Phone?": {
+      "main": [
+        [
+          {
+            "node": "Log Incorrect Phone",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Call Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Standardize Data": {
+      "main": [
+        [
+          {
+            "node": "Incorrect Phone?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Call Lead": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Call Details": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ended?": {
+      "main": [
+        [
+          {
+            "node": "Voicemail?",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Polling",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Polling": {
+      "main": [
+        [
+          {
+            "node": "Get Call Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Voicemail?": {
+      "main": [
+        [
+          {
+            "node": "Log Voicemal",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Log Complete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Ended?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Get Call Details",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "9de9b2ac-0824-4688-8097-afb198470135",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "45a766f86080c23992c37df8de646399e410c2992d8feccbd652cf00190e5fc0"
+  },
+  "id": "tRbbznVLHA7GawyhHjU5z",
+  "tags": []
+}
