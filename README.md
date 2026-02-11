@@ -1,4 +1,6 @@
 # AI Outbound Lead Qualification Workflow (n8n + Vapi)
+[Watch Demo Video](https://go.screenpal.com/watch/cOnXXwn0idg)
+
 ![ Workflow screenshot](./n8n.png)
 
 ## ROI Statement
@@ -169,7 +171,7 @@ With your own values from the Vapi dashboard.
 
 ## Repository Structure
 
-```text
+
 /project-folder
 │
 ├── workflow.json
